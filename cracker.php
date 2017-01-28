@@ -8,7 +8,6 @@ function getmicrotime() {
  
 $time_start = getmicrotime();
 
-$hash_password = md5('#41');
  
 //define algorithm of hash
 define('HASH_ALGO', 'md5');
@@ -29,7 +28,12 @@ $str_length = strlen($charset);
 if ($_SERVER["argc"] < 2) {
   echo "Usage: cracker.php <hash>\n";
   exit;
+}else{
+  $hash_password = $_SERVER["argv"][1];
 }
+
+//Overload
+$hash_password = md5('#41');
  
 function pwd_check($password)
 {
